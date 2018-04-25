@@ -2,3 +2,9 @@
 body{background-color: #E3E4E5}
 header{background-color: #3A3A3A}
 .placeholder{width: 7vh; background-color: white;} 
+.tamaño{height: 70vh; border-radius: 10px;}
+.nom{font-size: 2rem;}
+.ing{font-size: 1.5rem;}
+.fondo1{background-color: white;border-radius: 10px}
+.p{font-size: 1.25rem;}
+.fondo2{background-color: #3B3A3A; height: 70vh; color: #E3E4E5;}
