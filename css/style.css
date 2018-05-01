@@ -1,10 +1,13 @@
 /* Your custom styles */
 body{background-color: #E3E4E5}
-header{background-color: #3A3A3A}
-.placeholder{width: 7vh; background-color: white;} 
-.tamaño{height: 70vh; border-radius: 10px;}
+header{position: fixed;top: 0; z-index: 100; background-color: #3A3A3A;width: 100%;}
+.placeholder{width: 5vh; background-color: white;} 
+.tamaño{height: 70vmin; border-radius: 10px;display: block; margin: 0 auto auto;}
 .nom{font-size: 2rem;}
 .ing{font-size: 1.5rem;}
-.fondo1{background-color: white;border-radius: 10px}
+.fondo1{background-color: white;border-radius: 10px;}
 .p{font-size: 1.25rem;}
-.fondo2{background-color: #3B3A3A; height: 70vh; color: #E3E4E5;}
+.fondo2{background-color: rgb(59, 58, 58); height: 0%; color: #E3E4E5;}
+.margen{ margin-bottom: 50px; margin-top: 50px;}
+.color-bar{background-color: #75003E;}
+.btn-up{display: inline-block; padding: 7px; background-color: #75003E;color: white;width: 50px;height: 50px;-moz-border-radius: 50%;-webkit-border-radius: 50%;border-radius: 50%;text-align: center;font-size: 30px;position: fixed;bottom: 20px;right: 20px;z-index: 100;}
