@@ -1,5 +1,7 @@
 $(document).ready(function(){
     
+new WOW().init();
+                
     $(window).scroll(function(){
         if( $(this).scrollTop() > 400 ){
             $('.btn-up').slideDown(100);
@@ -7,4 +9,4 @@ $(document).ready(function(){
             $('.btn-up').slideUp(100);
         } 
     });
-});
+});                
