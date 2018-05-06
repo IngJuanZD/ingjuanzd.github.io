@@ -14,6 +14,9 @@ header{position: fixed;top: 0; z-index: 100;width: 100%;}
 .alinea{text-align: right;}
 .vl{font-size: 15px;margin-left: 26px;width: 1.5px;background-color: rgba(58, 58, 58, 0.384);height: 100%;}
 .fc{margin-left: 20.9px;font-size:12.5px;color: #3A3A3A;}
+.imgT{height: 25vh;margin: auto;margin-bottom: 10px;display: block;}
+
+footer{background-color: #3A3A3A;}
 
 @media(max-width:991.98px){
 #M_Big{text-align: left;}
