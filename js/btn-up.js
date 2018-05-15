@@ -9,4 +9,4 @@ new WOW().init();
             $('.btn-up').slideUp(100);
         } 
     });
-});                
+});
