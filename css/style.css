@@ -31,5 +31,19 @@ footer{background-color: #3A3A3A;}
 #M_Big{text-align: left;}
 #oculto{display: none;}
 #visible{margin-bottom: 30px}
+}
 
+#giraV{margin:10%;}
+@media screen and (orientation: landscape) {
+  #giraV{ display:none;}
+}
+
+@media screen and (orientation: portrait) { 
+  #giraH{ display:none;}
+}
+
+
+.rotar {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
