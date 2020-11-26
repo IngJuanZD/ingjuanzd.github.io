@@ -3,11 +3,11 @@
   .page-item {
     &.active {
       .page-link {
-        @extend .z-depth-1;
-        transition: $pagination-active-transition;
-        border-radius: $border-radius-base;
+        color: $white-base;
         background-color: $primary-color;
-        color: $white;
+        border-radius: $border-radius-base;
+        box-shadow: $z-depth-1;
+        transition: $pagination-active-transition;
         &:hover {
           background-color: $primary-color;
         }
@@ -19,19 +19,20 @@
       }
     }
     .page-link {
-      transition: $pagination-page-link-transition;
-      outline: 0;
-      border: 0;
-      background-color: transparent;
       font-size: $pagination-page-link-font-size;
       color: $pagination-page-link-color;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      transition: $pagination-page-link-transition;
       &:hover {
-        transition: $pagination-page-link-transition;
-        border-radius: $border-radius-base;
         background-color: $pagination-page-link-hover-bg-color;
+        border-radius: $border-radius-base;
+        transition: $pagination-page-link-transition;
       }
       &:focus {
         background-color: transparent;
+        box-shadow: none;
       }
     }
   }
@@ -52,8 +53,8 @@
   &.pagination-circle {
     .page-item {
       .page-link {
-        margin-left: $pagination-circle-margin-x;
         margin-right: $pagination-circle-margin-x;
+        margin-left: $pagination-circle-margin-x;
         border-radius: $pagination-circle-border-radius;
         &:hover {
           border-radius: $pagination-circle-border-radius;

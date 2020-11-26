@@ -20,12 +20,15 @@ table {
     a {
       margin: 0;
       color: $table-a-color;
+      // &.btn {
+      //   color: inherit;
+      // }
     }
     .label-table {
-      margin: 0;
+      height: $table-label-line-height;
       padding: 0;
-      line-height: 15px;
-      height: 15px;
+      margin: 0;
+      line-height: $table-label-height;
     }
     &.btn-table {
       td {
@@ -37,17 +40,17 @@ table {
     tbody {
       tr {
         &:hover {
-          transition: $table-hover-transition;
           background-color: $table-hover-background-color;
+          transition: $table-hover-transition;
         }
       }
     }
   }
   .th-lg {
-    min-width: 9rem;
+    min-width: $table-th-lg-min-width;
   }
   .th-sm {
-    min-width: 6rem;
+    min-width: $table-th-sm-min-width;
   }
   &.table-sm {
     th,
@@ -55,5 +58,21 @@ table {
       padding-top: $table-sm-padding-y;
       padding-bottom: $table-sm-padding-y;
     }
+  }
+}
+.table-scroll-vertical {
+  max-height: $table-scroll-vertical-max-height;
+  overflow-y: auto;
+}
+.table-fixed {
+  table-layout: fixed;
+}
+.table-responsive,
+.table-responsive-sm,
+.table-responsive-md,
+.table-responsive-lg,
+.table-responsive-xl {
+  > .table-bordered {
+    border-top: 1px solid #dee2e6;
   }
 }

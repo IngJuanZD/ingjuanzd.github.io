@@ -2,8 +2,15 @@
 // Styles for body
 body {
   &.modal-open {
-    overflow: auto;
     padding-right: 0 !important;
+    overflow: auto;
+
+    .fixed-top {
+      padding-right: 1rem !important;
+    }
+    .fixed-bottom {
+      padding-right: 0 !important;
+    }
   }
   &.scrollable {
     overflow-y: auto;
@@ -14,47 +21,39 @@ body {
 // General styles
 .modal-dialog {
   .modal-content {
-    @extend .z-depth-1-half;
     border: 0;
     border-radius: $border-radius-base;
+    box-shadow: $z-depth-1-half;
     .modal-header {
       border-top-left-radius: $border-radius-base;
       border-top-right-radius: $border-radius-base;
     }
   }
-  .btn  {
-    .fa {
-      color: $white !important;
-    }
-  }
-  [class*="btn-outline-"] .fa {
-    color: inherit !important;
-  }
   // Cascading modals
   &.cascading-modal {
     margin-top: 10%;
     .close {
-      opacity: 1;
+      color: $white-base;
       text-shadow: none;
-      color: $white;
       outline: 0;
+      opacity: 1;
     }
     // Cascading header
     .modal-header {
-      @extend .z-depth-1-half;
+      padding: $cascading-modal-padding;
       margin: $cascading-modal-margin-top $cascading-modal-margin-right $cascading-modal-margin-bottom $cascading-modal-margin-left;
+      text-align: center;
       border: none;
       border-radius: $border-radius-base;
-      padding: $cascading-modal-padding;
-      text-align: center;
+      box-shadow: $z-depth-1-half;
       .close {
         margin-right: $cascading-modal-close-margin-right;
       }
       .title {
-        margin-bottom: 0;
         width: 100%;
+        margin-bottom: 0;
         font-size: $cascading-modal-font-size;
-        .fa {
+        .fas, .fab, .far {
           margin-right: $cascading-modal-fa-margin-right;
         }
       }
@@ -67,29 +66,40 @@ body {
     }
     // Cascading tabs nav
     .modal-c-tabs {
-      .nav-tabs {
-        @extend .z-depth-1;
+      .md-tabs {
+        display: flex;
         margin: $cascading-modal-tabs-margin-top $cascading-modal-tabs-margin-x 0 $cascading-modal-tabs-margin-x;
+        box-shadow: $z-depth-1;
+        li {
+          flex: 1;
+          a {
+            text-align: center;
+          }
+        }
       }
       .tab-content {
         padding: $cascading-modal-tabs-padding-top 0 0 0;
       }
-    }
-    .nav-tabs {
-      display: flex;
-      li {
-        flex: 1;
-        a {
-          text-align: center;
-        }
+
+      /*
+      .md-tabs {
+       border-radius: $md-card-border-radius;
+       .nav-item {
+         .nav-link {
+           border-radius: $md-card-border-radius;
+           background-color: inherit;
+           color: $white-base;
+         }
+       }
       }
+      */
     }
     // Footer customization
     .modal-body,
     .modal-footer {
-      padding-left: $modal-body-padding-left;
       padding-right: $modal-body-padding-right;
-      color: map-get($grey, darken-2);
+      padding-left: $modal-body-padding-left;
+      color: $grey-darken-2;
       .additional-option {
         margin-top: $modal-body-margin-top;
         text-align: center;
@@ -99,14 +109,14 @@ body {
     &.modal-avatar {
       margin-top: $modal-avatar-margin-top;
       .modal-header {
-        @extend .z-depth-0;
         @extend .img-fluid;
         margin: $modal-avatar-header-margin-top 0 $modal-avatar-header-margin-bottom;
+        box-shadow: none;
         img {
           width: $modal-avatar-img-width;
-          @extend .z-depth-2;
-          margin-left: auto;
           margin-right: auto;
+          margin-left: auto;
+          box-shadow: $z-depth-2;
         }
       }
     }
@@ -114,32 +124,46 @@ body {
   // Modal notify
   &.modal-notify {
     .heading {
-      margin: 0;
       padding: $modal-notify-heading-padding;
+      margin: 0;
       font-size: $modal-notify-font-size;
-      color: $white;
+      color: $white-base;
     }
     .modal-header {
-      @extend .z-depth-1;
       border: 0;
+      box-shadow: $z-depth-1;
     }
     .close {
       opacity: 1;
     }
     .modal-body {
       padding: $modal-notify-body-padding;
-      color: map-get($grey, darken-2);
+      color: $grey-darken-2;
     }
     @each $name, $color in $basic {
       &.modal-#{$name}  {
         .modal-header {
           background-color: $color;
         }
-        .fa {
+        .fas, .fab, .far {
           color: $color;
         }
         .badge {
           background-color: $color;
+        }
+        .btn {
+          .fas,
+          .fab,
+          .far {
+            color: #fff;
+          }
+          &.btn-outline-#{$name} {
+            .fas,
+            .fab,
+            .far {
+              color: $color;
+            }
+          }
         }
       }
     }
@@ -176,8 +200,8 @@ body {
         left: $modal-distance;
       }
       &.modal-bottom-right {
-        bottom: $modal-distance;
         right: $modal-distance;
+        bottom: $modal-distance;
       }
     }
   }
@@ -219,21 +243,22 @@ body {
     }
     .modal-frame {
       position: absolute;
-      margin: 0;
       width: 100%;
-      max-width: 100%;
+      max-width: 100% !important;
+      margin: 0 !important;
       &.modal-bottom {
         bottom: 0;
       }
     }
     .modal-full-height {
       position: absolute;
-      display: flex;
-      margin: 0;
-      width: $modal-width;
-      height: 100%;
       top: 0;
       right: 0;
+      display: flex;
+      width: $modal-width;
+      height: auto;
+      min-height: 100%;
+      margin: 0;
       &.modal-top,
       &.modal-bottom {
         display: block;
@@ -246,6 +271,7 @@ body {
       }
       &.modal-bottom {
         top: auto;
+        min-height: 0;
       }
       .modal-content {
         width: 100%;
@@ -265,10 +291,10 @@ body {
     }
     .modal-side {
       position: absolute;
-      bottom: $modal-distance;
       right: $modal-distance;
-      margin: 0;
+      bottom: $modal-distance;
       width: $modal-width;
+      margin: 0;
     }
   }
 }
