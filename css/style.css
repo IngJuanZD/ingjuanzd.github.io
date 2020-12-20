@@ -47,6 +47,8 @@ header {
   bottom: 20px;
   right: 20px;
   z-index: 100;
+  background: white;
+  border-radius: 50%;
 }
 .alinea {
   text-align: right;
